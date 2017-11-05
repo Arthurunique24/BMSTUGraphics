@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <canvas id="lab01" width="200" height="200">
+        <script>
+            var canvas = document.getElementById("lab01");
+            var ctx = canvas.getContext("2d");
+            ctx.fillStyle = "#00aa00";
+            function ClickDown(event) {
+                canvas.addEventListener("mousemove", draw)
+            }
+
+            function ClickUp(event) {
+                canvas.removeEventListener("mousemove", draw)
+
+            }
+
+            function draw(event) {
+                ctx.fillRect(event.offsetX, event.offsetY, 3, 3);
+            }
+
+            canvas.addEventListener("mousedown", ClickDown)
+            canvas.addEventListener("mouseup", ClickUp)
+        </script>
+    </canvas>
+</body>
+</html>
