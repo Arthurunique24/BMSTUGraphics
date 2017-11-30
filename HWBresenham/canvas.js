@@ -5,16 +5,8 @@ canvas.height = window.innerHeight;
 
 var c = canvas.getContext("2d");
 
-let maxRadius = 70;
 let countOfCircles = 200;
 let colorArray = ["#99B898", "#FECEA8", "#FF847C", "#E84A5F"];
-
-window.addEventListener("resize", function () {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    
-    init();
-});
 
 function BrosenhamCircle(X1, Y1, R, circleColor) {
     let x = 0;
@@ -56,14 +48,6 @@ function Circle(x, y, dx, dy, radius) {
     this.colorArray = colorArray[Math.floor(Math.random() * colorArray.length)];
 
     this.draw = function () {
-        // c.beginPath();
-        // c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-
-        //If you want epileptic effect
-        // //c.fillStyle = colorArray[Math.floor(Math.random() * colorArray.length)];
-
-        // c.fillStyle = this.colorArray;
-        // c.fill();
         BrosenhamCircle(this.x, this.y, radius, this.colorArray);
     };
 
@@ -89,7 +73,6 @@ function init() {
     circleArray = [];
 
     for (let i = 0; i < countOfCircles; i++) {
-        //let radius = 30;
         let radius = Math.random() * 30 + 5;
         let x = Math.random() * (innerWidth - radius * 2) + radius;
         let y = Math.random() * (innerHeight - radius * 2) + radius;
